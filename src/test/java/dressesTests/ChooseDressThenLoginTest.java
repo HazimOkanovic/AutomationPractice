@@ -10,7 +10,6 @@ import java.util.Arrays;
 import static org.testng.Assert.assertEquals;
 
 public class ChooseDressThenLoginTest extends BaseTest {
-    //test
     private By dressesButton = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/a");
     String[] dressesNamesAfterSorting= {"Printed Chiffon Dress", "Printed Dress", "Printed Dress", "Printed Summer Dress", "Printed Summer Dress"};
     String categoryName = "DRESSES ";
