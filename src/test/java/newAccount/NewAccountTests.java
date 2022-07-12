@@ -21,8 +21,9 @@ public class NewAccountTests extends BaseTest {
     String addressInfoError = "There are 4 errors\n" + "address1 is required.\n" + "city is required.\n" +
             "The Zip/Postal code you've entered is invalid. It must follow this format: 00000\n" +
             "This country requires you to choose a State.";
-    String allRequiredInfoError = "There are 8 errors\n" + "You must register at least one phone number.\n" + "lastname is required.\n" +
-            "firstname is required.\n" + "passwd is required.\n" + "address1 is required.\n" + "city is required.\n" +
+    String allRequiredInfoError = "There are 8 errors\n" + "You must register at least one phone number.\n"
+            + "lastname is required.\n" + "firstname is required.\n" + "passwd is required.\n" +
+            "address1 is required.\n" + "city is required.\n" +
             "The Zip/Postal code you've entered is invalid. It must follow this format: 00000\n" +
             "This country requires you to choose a State.";
     String [] addressVariablesForChecking = {"OS Abdulvehab Ilhamija", "032670389", "062258766"};
