@@ -27,12 +27,6 @@ public class LogInTests extends BaseTest {
         accountPage.clickRetrieveButton();
         assertEquals(accountPage.checkErrorForgotPassNoAccount(), noAccountRegisteredError, "There is registered account");
     }
-    @Test
-    public void createAccountInvalidEmailTest(){
-        var accountPage = homePage.clickSignIn();
-        accountPage.enterEmailCreateAccount(password);
-        accountPage.clickCreateAccount();
-      //  assertEquals(accountPage.checkErrorCreateAccount(), invalidEmailError, "You can create an account with no email");
-    }
+
 
 }
