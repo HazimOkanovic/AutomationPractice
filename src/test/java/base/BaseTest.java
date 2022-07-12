@@ -15,12 +15,11 @@ public class BaseTest{
 
     @BeforeClass
     public void setUp() {
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "Resources/chromedriver");
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com/index.php");
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
-
     }
     @AfterMethod
     public void screenshot(ITestResult testResult){
