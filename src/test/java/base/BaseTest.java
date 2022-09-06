@@ -12,7 +12,6 @@ import static utils.Utils.takeScreenshot;
 public class BaseTest{
     WebDriver driver;
    public HomePage homePage;
-
     @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "Resources/chromedriver");

@@ -16,7 +16,6 @@ public class EveningDressesPage {
     private By casualDressAdded = By.xpath("//div//h2//span[@class='ajax_cart_product_txt ']");
     private By quantityField = By.xpath("//p//input[@id= 'quantity_wanted']");
     private By checkTheColourAndSize = By.xpath("//div//span[@id='layer_cart_product_attributes']");
-    private By continueShoppingButton = By.xpath("//div//span[@title='Continue shopping']");
     private By checkDressName = By.xpath("//div//h1[@itemprop='name']");
     private By numberOfDresses = By.xpath("//div//div//span[@id='layer_cart_product_quantity']");
 

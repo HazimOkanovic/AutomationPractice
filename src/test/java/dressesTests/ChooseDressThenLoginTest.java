@@ -10,25 +10,29 @@ import java.util.Arrays;
 import static org.testng.Assert.assertEquals;
 
 public class ChooseDressThenLoginTest extends BaseTest {
+    DressesPage dressesPage;
+    CartPage cartPage;
+    OrderCheckOutPage orderCheckOutPage;
+
     private By dressesButton = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/a");
-    String[] dressesNamesAfterSorting= {"Printed Chiffon Dress", "Printed Dress", "Printed Dress", "Printed Summer Dress", "Printed Summer Dress"};
-    String categoryName = "DRESSES ";
-    String dressName = "Printed Dress";
-    String dressColourAndSize = "Beige, M";
-    String totalPriceOfDresses = "$409.92";
-    String shippingCartContains = "Your shopping cart contains: 8 Products";
-    String alreadyRegistered = "ALREADY REGISTERED?";
-    String email = "private.pitanje@outlook.com";
-    String password = "Hazim123";
-    String emailPath = "email";
-    String passwordPath = "passwd";
-    String sortByName = "Product Name: Z to A";
-    String dressNumber = "3";
-    String wantedColour = "Beige";
-    String wantedSize = "M";
-    String colourAndSizeInCart = "Color : Beige, Size : M";
-    String wantedQuantity = "8";
-    String billingAddress = "YOUR BILLING ADDRESS\n" +
+    private String[] dressesNamesAfterSorting= {"Printed Chiffon Dress", "Printed Dress", "Printed Dress", "Printed Summer Dress", "Printed Summer Dress"};
+    private String categoryName = "DRESSES ";
+    private String dressName = "Printed Dress";
+    private String dressColourAndSize = "Beige, M";
+    private String totalPriceOfDresses = "$409.92";
+    private String shippingCartContains = "Your shopping cart contains: 8 Products";
+    private String alreadyRegistered = "ALREADY REGISTERED?";
+    private String email = "private.pitanje@outlook.com";
+    private String password = "Hazim123";
+    private String emailPath = "email";
+    private String passwordPath = "passwd";
+    private String sortByName = "Product Name: Z to A";
+    private String dressNumber = "3";
+    private String wantedColour = "Beige";
+    private String wantedSize = "M";
+    private String colourAndSizeInCart = "Color : Beige, Size : M";
+    private String wantedQuantity = "8";
+    private String billingAddress = "YOUR BILLING ADDRESS\n" +
                             "Hazim Okanovic\n" +
                             "OS AbdulvehabIlhamija\n" +
                             "Sahmani bb\n" +
@@ -36,11 +40,8 @@ public class ChooseDressThenLoginTest extends BaseTest {
                             "United States\n" +
                             "062258766\n" +
                             "Update";
-    String orderSummary = "You have chosen to pay by bank wire. Here is a short summary of your order:";
-    String orderConfirmation = "Your order on My Store is complete.";
-    DressesPage dressesPage;
-    CartPage cartPage;
-    OrderCheckOutPage orderCheckOutPage;
+    private String orderSummary = "You have chosen to pay by bank wire. Here is a short summary of your order:";
+    private String orderConfirmation = "Your order on My Store is complete.";
 
     @Test(priority = 0)
     public void checkClickOnDresses(){

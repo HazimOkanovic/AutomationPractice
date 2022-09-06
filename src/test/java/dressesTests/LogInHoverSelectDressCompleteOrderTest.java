@@ -6,25 +6,31 @@ import java.util.Arrays;
 import static org.testng.Assert.assertEquals;
 
 public class LogInHoverSelectDressCompleteOrderTest extends BaseTest {
-    String email = "private.pitanje@outlook.com";
-    String password = "Hazim123";
-    String emailPath = "email";
-    String passwordPath = "passwd";
-    String logInMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
-    String summerDressesTitle = "SUMMER DRESSES ";
-    String[] dressesNamesAfterSorting= {"Printed Chiffon Dress", "Printed Summer Dress", "Printed Summer Dress"};
-    String dressName = "Printed Chiffon Dress";
-    String dressColourAndSize = "Green, L";
-    String numberOfDresses = "9";
-    String priceOfTenDresses = "$149.60";
-    String sortByLowestFirst = "Price: Lowest first";
-    String dressNumber = "1";
-    String wantedColour = "Green";
-    String wantedSize = "L";
-    String dressColourAndSizeInCart = "Color : Green, Size : L";
-    String wantedQuantity = "9";
-    String shippingCartContains = "Your shopping cart contains: 9 Products";
-    String billingAddress = "YOUR BILLING ADDRESS\n" +
+    LogInPage logInPage;
+    MyAccountPage accountPage;
+    DressesPage dressesPage;
+    CartPage cartPage;
+    OrderCheckOutPage orderCheckOutPage;
+
+    private String email = "private.pitanje@outlook.com";
+    private String password = "Hazim123";
+    private String emailPath = "email";
+    private String passwordPath = "passwd";
+    private String logInMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
+    private String summerDressesTitle = "SUMMER DRESSES ";
+    private String[] dressesNamesAfterSorting= {"Printed Chiffon Dress", "Printed Summer Dress", "Printed Summer Dress"};
+    private String dressName = "Printed Chiffon Dress";
+    private String dressColourAndSize = "Green, L";
+    private String numberOfDresses = "9";
+    private String priceOfTenDresses = "$149.60";
+    private String sortByLowestFirst = "Price: Lowest first";
+    private String dressNumber = "1";
+    private String wantedColour = "Green";
+    private String wantedSize = "L";
+    private String dressColourAndSizeInCart = "Color : Green, Size : L";
+    private String wantedQuantity = "9";
+    private String shippingCartContains = "Your shopping cart contains: 9 Products";
+    private String billingAddress = "YOUR BILLING ADDRESS\n" +
                             "Hazim Okanovic\n" +
                             "OS AbdulvehabIlhamija\n" +
                             "Sahmani bb\n" +
@@ -32,13 +38,8 @@ public class LogInHoverSelectDressCompleteOrderTest extends BaseTest {
                             "United States\n" +
                             "062258766\n" +
                             "Update";
-    String orderSummary = "You have chosen to pay by check. Here is a short summary of your order:";
-    String orderConfirmation = "Your order on My Store is complete.";
-    LogInPage logInPage;
-    MyAccountPage accountPage;
-    DressesPage dressesPage;
-    CartPage cartPage;
-    OrderCheckOutPage orderCheckOutPage;
+    private String orderSummary = "You have chosen to pay by check. Here is a short summary of your order:";
+    private String orderConfirmation = "Your order on My Store is complete.";
 
     @Test(priority = 0)
     public void checkLogIn(){

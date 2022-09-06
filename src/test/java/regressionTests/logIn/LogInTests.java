@@ -10,16 +10,16 @@ import static org.testng.Assert.assertEquals;
 public class LogInTests extends BaseTest {
     LogInPage logInPage;
     MyAccountPage myAccountPage;
-    String email = "private.pitanje@outlook.com";
-    String invalidEmail = "private.outlook@outlook.com";
-    String password = "Hazim123";
-    String emailPath = "email";
-    String passwordPath = "passwd";
-    String logInMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
-    String signOutText = "Sign in";
-    String failedAuthentication = "Authentication failed.";
-    String messageConfirmationEmailIsSent = "A confirmation email has been sent to your address: private.pitanje@outlook.com";
-    String invalidEmailError = "Invalid email address.";
+    private String email = "private.pitanje@outlook.com";
+    private String invalidEmail = "private.outlook@outlook.com";
+    private String password = "Hazim123";
+    private String emailPath = "email";
+    private String passwordPath = "passwd";
+    private String logInMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
+    private String signOutText = "Sign in";
+    private String failedAuthentication = "Authentication failed.";
+    private String messageConfirmationEmailIsSent = "A confirmation email has been sent to your address: private.pitanje@outlook.com";
+    private String invalidEmailError = "Invalid email address.";
 
     @Test(priority = 0)
     public void logInWithValidCredentials(){

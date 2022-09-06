@@ -7,30 +7,36 @@ import java.util.Arrays;
 import static org.testng.Assert.assertEquals;
 
 public class BuyingTwoDifferentDressesTest extends BaseTest {
-    String email = "private.pitanje@outlook.com";
-    String password = "Hazim123";
-    String emailPath = "email";
-    String passwordPath = "passwd";
-    String logInMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
-    String categoryName = "DRESSES ";
-    String sortByName = "Product Name: Z to A";
-    String sortByPrice = "Price: Lowest first";
-    String firstDressNumber = "2";
-    String secondDressNumber = "4";
-    String[] dressesNamesAfterFirstSorting = {"Printed Chiffon Dress", "Printed Dress", "Printed Dress", "Printed Summer Dress", "Printed Summer Dress"};
-    String[] dressesNamesAfterSecondSorting = {"Printed Chiffon Dress", "Printed Dress", "Printed Summer Dress", "Printed Summer Dress", "Printed Dress"};
-    String firstDressName = "Printed Dress";
-    String secondDressName = "Printed Summer Dress";
-    String firstDressSize = "Orange, L";
-    String totalPrice = "$341.00";
-    String wantedColour = "White";
-    String wantedSize = "L";
-    String secondDressColorAndSize = "White, L";
-    String firstDressColourAndSizeInCart = "Color : Orange, Size : L";
-    String secondDressColourAndSizeInCart = "Color : White, Size : L";
-    String wantedQuantity = "6";
-    String shippingCartContains = "Your shopping cart contains: 12 Products";
-    String billingAddress = "YOUR BILLING ADDRESS\n" +
+    LogInPage logInPage;
+    MyAccountPage accountPage;
+    DressesPage dressesPage;
+    CartPage cartPage;
+    OrderCheckOutPage orderCheckOutPage;
+
+    private String email = "private.pitanje@outlook.com";
+    private String password = "Hazim123";
+    private String emailPath = "email";
+    private String passwordPath = "passwd";
+    private String logInMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
+    private String categoryName = "DRESSES ";
+    private String sortByName = "Product Name: Z to A";
+    private String sortByPrice = "Price: Lowest first";
+    private String firstDressNumber = "2";
+    private String secondDressNumber = "4";
+    private String[] dressesNamesAfterFirstSorting = {"Printed Chiffon Dress", "Printed Dress", "Printed Dress", "Printed Summer Dress", "Printed Summer Dress"};
+    private String[] dressesNamesAfterSecondSorting = {"Printed Chiffon Dress", "Printed Dress", "Printed Summer Dress", "Printed Summer Dress", "Printed Dress"};
+    private String firstDressName = "Printed Dress";
+    private String secondDressName = "Printed Summer Dress";
+    private String firstDressSize = "Orange, L";
+    private String totalPrice = "$341.00";
+    private String wantedColour = "White";
+    private String wantedSize = "L";
+    private String secondDressColorAndSize = "White, L";
+    private String firstDressColourAndSizeInCart = "Color : Orange, Size : L";
+    private String secondDressColourAndSizeInCart = "Color : White, Size : L";
+    private String wantedQuantity = "6";
+    private String shippingCartContains = "Your shopping cart contains: 12 Products";
+    private String billingAddress = "YOUR BILLING ADDRESS\n" +
             "Hazim Okanovic\n" +
             "OS AbdulvehabIlhamija\n" +
             "Sahmani bb\n" +
@@ -38,13 +44,8 @@ public class BuyingTwoDifferentDressesTest extends BaseTest {
             "United States\n" +
             "062258766\n" +
             "Update";
-    String orderSummary = "You have chosen to pay by bank wire. Here is a short summary of your order:";
-    String orderConfirmation = "Your order on My Store is complete.";
-    LogInPage logInPage;
-    MyAccountPage accountPage;
-    DressesPage dressesPage;
-    CartPage cartPage;
-    OrderCheckOutPage orderCheckOutPage;
+    private String orderSummary = "You have chosen to pay by bank wire. Here is a short summary of your order:";
+    private String orderConfirmation = "Your order on My Store is complete.";
 
     @Test(priority = 0)
     public void checkLogIn(){

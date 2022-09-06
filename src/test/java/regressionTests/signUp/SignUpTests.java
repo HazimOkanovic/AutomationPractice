@@ -10,28 +10,29 @@ import static org.testng.Assert.assertEquals;
 public class SignUpTests extends BaseTest {
     LogInPage logInPage;
     NewAccountPage newAccountPage;
-    String email = Utils.getAlphaNumericString(7) + "@gmail.com";
-    String [] personalInfo = {"Hazim", "Okanovic", "Hazim123"};
-    String [] personalInfoPaths = {"customer_firstname", "customer_lastname", "passwd"};
-    String [] timeVariables = {"10", "1", "1992"};
-    String [] timePaths = {"days", "months", "years"};
-    String [] companyAddressesCityZip = {"OS Abdulvehab Ilhamija", "Sahmani bb", "Bosnia and Herzegovina", "Zepce", "72236"};
-    String [] companyAddressesCityZipPaths = {"company", "address1", "address2", "city", "postcode"};
-    String addInfo = "There is nothing more to add";
-    String [] phonesAndAddressForReference = {"032670389", "062258766", "Zeljezno Polje"};
-    String [] phonesAndAddressForReferencePath = {"phone", "phone_mobile", "alias"};
-    String nameSurnameAndPasswordError = "There are 3 errors\n" + "lastname is required.\n" +
+
+    private String email = Utils.getAlphaNumericString(7) + "@gmail.com";
+    private String [] personalInfo = {"Hazim", "Okanovic", "Hazim123"};
+    private String [] personalInfoPaths = {"customer_firstname", "customer_lastname", "passwd"};
+    private String [] timeVariables = {"10", "1", "1992"};
+    private String [] timePaths = {"days", "months", "years"};
+    private String [] companyAddressesCityZip = {"OS Abdulvehab Ilhamija", "Sahmani bb", "Bosnia and Herzegovina", "Zepce", "72236"};
+    private String [] companyAddressesCityZipPaths = {"company", "address1", "address2", "city", "postcode"};
+    private String addInfo = "There is nothing more to add";
+    private String [] phonesAndAddressForReference = {"032670389", "062258766", "Zeljezno Polje"};
+    private String [] phonesAndAddressForReferencePath = {"phone", "phone_mobile", "alias"};
+    private String nameSurnameAndPasswordError = "There are 3 errors\n" + "lastname is required.\n" +
             "firstname is required.\n" + "passwd is required.";
-    String addressInfoError = "There are 4 errors\n" + "address1 is required.\n" + "city is required.\n" +
+    private String addressInfoError = "There are 4 errors\n" + "address1 is required.\n" + "city is required.\n" +
             "The Zip/Postal code you've entered is invalid. It must follow this format: 00000\n" +
             "This country requires you to choose a State.";
-    String allRequiredInfoError = "There are 8 errors\n" + "You must register at least one phone number.\n"
+    private String allRequiredInfoError = "There are 8 errors\n" + "You must register at least one phone number.\n"
             + "lastname is required.\n" + "firstname is required.\n" + "passwd is required.\n" +
             "address1 is required.\n" + "city is required.\n" +
             "The Zip/Postal code you've entered is invalid. It must follow this format: 00000\n" +
             "This country requires you to choose a State.";
-    String [] addressVariablesForChecking = {"OS Abdulvehab Ilhamija", "032670389", "062258766"};
-    String [] addressVariablesFOrCheckingPaths = {"company", "phone", "phone_mobile"};
+    private String [] addressVariablesForChecking = {"OS Abdulvehab Ilhamija", "032670389", "062258766"};
+    private String [] addressVariablesFOrCheckingPaths = {"company", "phone", "phone_mobile"};
     @Test
     public void createAccountWithAllInfoTest(){
         logInPage = homePage.clickSignIn();
