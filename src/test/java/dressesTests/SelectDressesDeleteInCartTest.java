@@ -8,29 +8,31 @@ import pages.MyAccountPage;
 import static org.testng.Assert.assertEquals;
 
 public class SelectDressesDeleteInCartTest extends BaseTest {
-    String email = "private.pitanje@outlook.com";
-    String password = "Hazim123";
-    String emailPath = "email";
-    String passwordPath = "passwd";
-    String logInMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
-    String casualDress = "casual dress";
-    String dressNumber = "1";
-    String wantedColour = "Blue";
-    String wantedSize = "L";
-    String wantedQuantity = "7";
-    String trashButtonNumber = "1";
-    String summerDressName = "Printed Summer Dress";
-    String emptyCartMessage = "Your shopping cart is empty.";
-    String shippingCartContains = "Your shopping cart contains: 7 Products";
-    String numberOfDresses = "7";
-    String dressesPrice = "$204.86";
-    String casualDressColourAndSize = "Blue, L";
-    String dressColourAndSizeInCart = "Color : Blue, Size : L";
-    String searchCasualDressResult = "4 results have been found.";
     MyAccountPage accountPage;
     LogInPage logInPage;
     CartPage cartPage;
     DressesPage dressesPage;
+
+    private String email = "private.pitanje@outlook.com";
+    private String password = "Hazim123";
+    private String emailPath = "email";
+    private String passwordPath = "passwd";
+    private String logInMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
+    private String casualDress = "casual dress";
+    private String dressNumber = "1";
+    private String wantedColour = "Blue";
+    private String wantedSize = "L";
+    private String wantedQuantity = "7";
+    private String trashButtonNumber = "1";
+    private String summerDressName = "Printed Summer Dress";
+    private String emptyCartMessage = "Your shopping cart is empty.";
+    private String shippingCartContains = "Your shopping cart contains: 7 Products";
+    private String numberOfDresses = "7";
+    private String dressesPrice = "$204.86";
+    private String casualDressColourAndSize = "Blue, L";
+    private String dressColourAndSizeInCart = "Color : Blue, Size : L";
+    private String searchCasualDressResult = "4 results have been found.";
+
     @Test(priority = 0)
     public void checkLogIn(){
         logInPage = homePage.clickSignIn();
