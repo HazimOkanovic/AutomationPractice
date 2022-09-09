@@ -17,7 +17,6 @@ public class DressesPage {
     private By selectDropDown = By.xpath("//div//div[@id='uniform-group_1']");
     private By chooseTheSize = By.xpath("//div//div/select[@name='group_1']");
     private By proceedToCheckOutButton = By.xpath("//div//a[@title='Proceed to checkout']");
-
     private By casualDressAdded = By.xpath("//div//h2//span[@class='ajax_cart_product_txt ']");
     private By quantityField = By.xpath("//p//input[@id= 'quantity_wanted']");
     private By checkTheColourAndSize = By.xpath("//div//span[@id='layer_cart_product_attributes']");
