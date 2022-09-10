@@ -103,4 +103,4 @@ public class SmokeTest extends BaseTest {
         orderCheckOutPage.clickSubmitOrder();
         assertEquals(orderCheckOutPage.checkOrderSummary(), orderConfirmation, "Order summary is not the same");
     }
-}
+ }   
