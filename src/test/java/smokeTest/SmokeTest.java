@@ -13,6 +13,7 @@ public class SmokeTest extends BaseTest {
     CartPage cartPage;
     OrderCheckOutPage orderCheckOutPage;
 
+    private String authentication = "AUTHENTICATION";
     private String email = "private.pitanje@outlook.com";
     private String password = "Hazim123";
     private String emailPath = "email";
@@ -39,65 +40,69 @@ public class SmokeTest extends BaseTest {
     private String orderConfirmation = "Your order on My Store is complete.";
 
     @Test(priority = 0)
-    public void logInWithValidCredentials(){
+    public void checkSignInButton(){
         logInPage = homePage.clickSignIn();
+        assertEquals(logInPage.checkAuthentication(), authentication, "Message is not the same");
+    }
+    @Test(priority = 1)
+    public void logInWithValidCredentials(){
         logInPage.enterLoginData(email, emailPath);
         logInPage.enterLoginData(password, passwordPath);
         myAccountPage = logInPage.clickSignIn();
         assertEquals(myAccountPage.checkLogIn(), logInMessage, "Log in was not successful");
     }
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void checkClickOnDresses(){
         dressesPage = homePage.clickDresses();
         assertEquals(dressesPage.checkCategoryName(), categoryName, "The click did not work");
     }
-    @Test(priority = 2)
+    @Test(priority = 3)
     public void checkDressSelecting(){
         dressesPage.chooseTheDress(firstDressNumber);
         assertEquals(dressesPage.checkIfDressIsSelected(), firstDressName, "Names do not match");
     }
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void checkSelectingSizeAndQuantity(){
         dressesPage.setTheSize(wantedSize);
         dressesPage.enterWantedQuantity(wantedQuantity);
         dressesPage.clickAddToCart();
         assertEquals(dressesPage.checkTheNumberOfDresses(), wantedQuantity, "Numbers do not match");
     }
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void checkTheSize(){
         assertEquals(dressesPage.checkTheColourAndSize(), firstDressSize, "Sizes do not match");
     }
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void checkTotalPriceCart(){
         cartPage = dressesPage.proceedToCheckOut();
         assertEquals(cartPage.getTotalPriceInCart(), totalPrice, "Prices are not the same");
     }
-    @Test(priority = 6)
+    @Test(priority = 7)
     public void checkProductNumber(){
         assertEquals(cartPage.checkShippingCart(), shippingCartContains, "Shipping cart numbers do not match");
     }
-    @Test(priority = 7)
+    @Test(priority = 8)
     public void checkSizeAndColourFirstDressInCart(){
         assertEquals(cartPage.checkColourAndSizeInCart("1"), firstDressColourAndSizeInCart, "Colour and size do not match");
     }
-    @Test(priority = 8)
+    @Test(priority = 9)
     public void checkBillingAddress(){
         orderCheckOutPage = cartPage.clickCheckOutCart();
         assertEquals(orderCheckOutPage.checkBillingAddress(), billingAddress, "Billing address is not the same");
     }
-    @Test(priority = 9)
+    @Test(priority = 10)
     public void checkSelectingAcceptTerms(){
         orderCheckOutPage.clickProceed();
         orderCheckOutPage.clickAcceptTerms();
         orderCheckOutPage.clickProceed();
         assertEquals(orderCheckOutPage.checkTotalPriceBeforeChoosingPayment(), totalPrice, "Total price is not the same");
     }
-    @Test(priority = 10)
+    @Test(priority = 11)
     public void checkSelectingBankWire(){
         orderCheckOutPage.clickBankWire();
         assertEquals(orderCheckOutPage.getOrderConfirmationBankWire(), orderSummary, "Order confirmation is not the same");
     }
-    @Test(priority = 11)
+    @Test(priority = 12)
     public void checkCompleteOrder(){
         orderCheckOutPage.clickSubmitOrder();
         assertEquals(orderCheckOutPage.checkOrderSummary(), orderConfirmation, "Order summary is not the same");

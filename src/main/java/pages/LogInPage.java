@@ -15,6 +15,7 @@ public class LogInPage {
     private By emailCreateAccount = By.xpath("//div//input[@id='email_create']");
     private By emailCreateErrorMessage = By.xpath("//div//ol//li");
     private By createAccountButton = By.xpath("//div//button[@id='SubmitCreate']");
+    private By authentication = By.xpath("//div//h1[@class='page-heading']");
 
     public LogInPage(WebDriver driver){
         this.driver = driver;
@@ -33,6 +34,10 @@ public class LogInPage {
     public String checkMessageForgotPasswdWithAccount() {
         waitPresent(messageForgotPassWithAccount, driver);
         return driver.findElement(messageForgotPassWithAccount).getText();
+    }
+    public String checkAuthentication(){
+        waitPresent(authentication, driver);
+        return driver.findElement(authentication).getText();
     }
     public void clickForgotPass(){
         waitPresent(forgotPassButton, driver);
