@@ -10,6 +10,8 @@ import static org.testng.Assert.assertEquals;
 public class LogInTests extends BaseTest {
     LogInPage logInPage;
     MyAccountPage myAccountPage;
+
+    private String authentication = "AUTHENTICATION";
     private String email = "private.pitanje@outlook.com";
     private String invalidEmail = "private.outlook@outlook.com";
     private String password = "Hazim123";
@@ -22,37 +24,41 @@ public class LogInTests extends BaseTest {
     private String invalidEmailError = "Invalid email address.";
 
     @Test(priority = 0)
-    public void logInWithValidCredentials(){
+    public void checkSignInButton(){
         logInPage = homePage.clickSignIn();
+        assertEquals(logInPage.checkAuthentication(), authentication, "The message is not the same");
+    }
+    @Test(priority = 1)
+    public void logInWithValidCredentials(){
         logInPage.enterLoginData(email, emailPath);
         logInPage.enterLoginData(password, passwordPath);
         myAccountPage = logInPage.clickSignIn();
         assertEquals(myAccountPage.checkLogIn(), logInMessage, "Log in was not successful");
     }
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void signingOutTest(){
         myAccountPage.clickSignOut();
         assertEquals(myAccountPage.checkSignOut(), signOutText, "Sign out does not work");
     }
-    @Test(priority = 2)
+    @Test(priority = 3)
     public void signInNoAccountTest(){
         logInPage.enterLoginData(invalidEmail, emailPath);
         logInPage.enterLoginData(password, passwordPath);
         logInPage.clickSignIn();
         assertEquals(logInPage.checkErrorCreateAccount(), failedAuthentication, "Authentication does not work!");
     }
-    @Test (priority = 3)
+    @Test (priority = 4)
     public void noInputsTest(){
         logInPage.clickSignIn();
         assertEquals(logInPage.checkErrorForgotPassNoAccount(), failedAuthentication, "Works with no inputs!");
     }
-    @Test (priority = 4)
+    @Test (priority = 5)
     public void invalidEmailTest(){
         logInPage.enterLoginData(password,emailPath);
         logInPage.clickSignIn();
         assertEquals(logInPage.checkErrorCreateAccount(), failedAuthentication, "Email verification did not fail!");
     }
-    @Test (priority = 5)
+    @Test (priority = 6)
     public void forgotPasswordWithAccountTest(){
         logInPage.clickForgotPass();
         logInPage.enterEmailRetrievePass(email);

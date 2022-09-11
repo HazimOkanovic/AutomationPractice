@@ -1,4 +1,4 @@
-package dressesTests;
+package regressionTests.dressesTests;
 import base.BaseTest;
 import org.testng.annotations.Test;
 import pages.*;
@@ -17,6 +17,7 @@ public class LogInHoverSelectDressCompleteOrderTest extends BaseTest {
     private String emailPath = "email";
     private String passwordPath = "passwd";
     private String logInMessage = "Welcome to your account. Here you can manage all of your personal information and orders.";
+    private String authentication = "AUTHENTICATION";
     private String summerDressesTitle = "SUMMER DRESSES ";
     private String[] dressesNamesAfterSorting= {"Printed Chiffon Dress", "Printed Summer Dress", "Printed Summer Dress"};
     private String dressName = "Printed Chiffon Dress";
@@ -42,80 +43,84 @@ public class LogInHoverSelectDressCompleteOrderTest extends BaseTest {
     private String orderConfirmation = "Your order on My Store is complete.";
 
     @Test(priority = 0)
-    public void checkLogIn(){
+    public void checkSignInButton(){
         logInPage = homePage.clickSignIn();
+        assertEquals(logInPage.checkAuthentication(), authentication, "The message is not the same");
+    }
+    @Test(priority = 1)
+    public void checkLogIn(){
         logInPage.enterLoginData(email, emailPath);
         logInPage.enterLoginData(password, passwordPath);
         accountPage = logInPage.clickSignIn();
         assertEquals(accountPage.checkLogIn(), logInMessage, "Log in was not successful");
     }
-    @Test(priority = 1)
+    @Test(priority = 2)
     public void checkHoverAndSelectSummerDress(){
         accountPage.hoverOverDresses();
         dressesPage = accountPage.clickSummerDressesAfterHover();
         assertEquals(dressesPage.checkCategoryName(), summerDressesTitle, "The title is not the same");
     }
-    @Test(priority = 2)
+    @Test(priority = 3)
     public void checkSortBy() throws InterruptedException {
         dressesPage.sortBy(sortByLowestFirst);
-        Thread.sleep(Long.parseLong("5000"));
+        Thread.sleep(Long.parseLong("8000"));
         assertEquals(dressesPage.checkDressesOrder().toString(), Arrays.toString(dressesNamesAfterSorting), "The dresses are not in the same order");
     }
-    @Test(priority = 3)
+    @Test(priority = 4)
     public void checkSelectDress(){
         dressesPage.chooseTheDress(dressNumber);
         assertEquals(dressesPage.checkIfDressIsSelected(), dressName, "Dress names are not the same");
     }
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void checkSelectingColourAndSize(){
         dressesPage.chooseTheDressColour(wantedColour);
         dressesPage.setTheSize(wantedSize);
     }
-    @Test(priority = 5)
+    @Test(priority = 6)
     public void checkQuantity(){
         dressesPage.enterWantedQuantity(wantedQuantity);
         dressesPage.clickAddToCart();
         assertEquals(dressesPage.checkTheNumberOfDresses(), numberOfDresses, "Numbers are not the same");
     }
-    @Test(priority = 6)
+    @Test(priority = 7)
     public void checkColourAndSize(){
         assertEquals(dressesPage.checkTheColourAndSize(), dressColourAndSize, "Colour and Size are not the same");
     }
-    @Test(priority = 7)
+    @Test(priority = 8)
     public void checkPriceInCart(){
         cartPage = dressesPage.proceedToCheckOut();
         assertEquals(cartPage.getTotalPriceInCart(), priceOfTenDresses, "Prices are not the same");
     }
-    @Test(priority = 8)
+    @Test(priority = 9)
     public void checkProductNumber(){
         assertEquals(cartPage.checkShippingCart(), shippingCartContains, "Shipping cart number is not same");
     }
-    @Test(priority = 9)
+    @Test(priority = 10)
     public void checkColourAndSizeInCart(){
         assertEquals(cartPage.checkColourAndSizeInCart("1"), dressColourAndSizeInCart, "Colour and size do not match");
     }
-    @Test(priority = 10)
+    @Test(priority = 11)
     public void checkBillingAddress(){
         orderCheckOutPage = cartPage.clickCheckOutCart();
         assertEquals(orderCheckOutPage.checkBillingAddress(), billingAddress, "Billing address is not the same");
     }
-    @Test(priority = 11)
+    @Test(priority = 12)
     public void checkPriceBeforePayment(){
         orderCheckOutPage.clickProceed();
         orderCheckOutPage.clickAcceptTerms();
         orderCheckOutPage.clickProceed();
         assertEquals(orderCheckOutPage.checkTotalPriceBeforeChoosingPayment(), priceOfTenDresses, "The prices are not the same");
     }
-    @Test(priority = 12)
+    @Test(priority = 13)
     public void checkColourAndSizeBeforePayment(){
         assertEquals(orderCheckOutPage.checkColourAndSizeBeforePayment(), dressColourAndSizeInCart, "Colour and size do not match");
     }
-    @Test(priority = 13)
+    @Test(priority = 14)
     public void checkChequePaymentOption(){
         orderCheckOutPage.clickCheckPayment();
         assertEquals(orderCheckOutPage.checkOrderSummary(), orderSummary, "Order summary is not the same");
     }
-    @Test(priority = 14)
+    @Test(priority = 15)
     public void checkOrderConfirmation(){
         orderCheckOutPage.clickSubmitOrder();
         assertEquals(orderCheckOutPage.getOrderConfirmationCheck(), orderConfirmation, "Order confirmation is not the same");

@@ -9,11 +9,7 @@ import static utils.Utils.waitPresent;
 public class MyAccountPage {
     private static WebDriver driver;
     private By myAddressButton = By.xpath("//div//li//a[@title='Addresses']");
-    private By logoButton = By.xpath("//div//a[@title='My Store']//img[@class='logo img-responsive']");
-    private By cartButton = By.xpath("//div//a[@title='View my shopping cart']");
     private By dressesButton = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/a");
-    private By casualDresses = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[1]/a");
-    private By eveningDresses = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[2]/a");
     private By summerDresses = By.xpath("//*[@id=\"block_top_menu\"]/ul/li[2]/ul/li[3]/a");
     private By logOutButton = By.xpath("//div//a[@title='Log me out']");
     private By signInButton = By.xpath("//div//a[@class='login']");
@@ -33,10 +29,6 @@ public class MyAccountPage {
         waitPresent(By.xpath(elementLocation), driver);
         return driver.findElement(By.xpath(elementLocation)).getText();
     }
-    public void clickLogoToGoHome(){
-        waitPresent(logoButton, driver);
-        driver.findElement(logoButton).click();
-    }
     public void clickSignOut(){
         waitPresent(logOutButton, driver);
         driver.findElement(logOutButton).click();
@@ -52,11 +44,6 @@ public class MyAccountPage {
     public String checkLogIn(){
         waitPresent(welcomeToAccount, driver);
         return driver.findElement(welcomeToAccount).getText();
-    }
-    public DressesPage clickEveningDressesAfterHover(){
-        waitPresent(eveningDresses, driver);
-        driver.findElement(eveningDresses).click();
-        return new DressesPage(driver);
     }
     public DressesPage clickSummerDressesAfterHover(){
         waitPresent(summerDresses, driver);

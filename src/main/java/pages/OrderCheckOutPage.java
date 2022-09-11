@@ -11,14 +11,12 @@ public class OrderCheckOutPage {
     private By bankWirePayment = By.xpath("//div//p//a[@class='bankwire']");
     private By checkPayment = By.xpath("//div//p//a[@class='cheque']");
     private By confirmOrderButton = By.xpath("//p//button[@type = 'submit']");
-    private By errorNotClickingAcceptTerms = By.xpath("//div//div//p[@class = 'fancybox-error']");
     private By totalPriceBeforePayment = By.xpath("//tr//td//span[@id= 'total_price']");
     private By orderConfirmationCheck = By.xpath("//div//p[@class= 'alert alert-success']");
     private By orderConfirmationBankWire = By.xpath("//div//p//strong[@class= 'dark']");
     private By alreadyRegistered = By.xpath("//*[@id=\"login_form\"]/h3");
     private By submitButton = By.xpath("//p//button[@id='SubmitLogin']");
     private By orderSummary = By.xpath("//div//p//strong[@class='dark']");
-    private By closeTermsErrorButton = By.xpath("//div//a[@title='Close']");
     private By colourAndSizeBeforePayment = By.xpath("//td//small//a");
 
     public OrderCheckOutPage(WebDriver driver){

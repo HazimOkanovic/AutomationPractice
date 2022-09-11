@@ -17,15 +17,12 @@ public class DressesPage {
     private By selectDropDown = By.xpath("//div//div[@id='uniform-group_1']");
     private By chooseTheSize = By.xpath("//div//div/select[@name='group_1']");
     private By proceedToCheckOutButton = By.xpath("//div//a[@title='Proceed to checkout']");
-    private By casualDressAdded = By.xpath("//div//h2//span[@class='ajax_cart_product_txt ']");
     private By quantityField = By.xpath("//p//input[@id= 'quantity_wanted']");
     private By checkTheColourAndSize = By.xpath("//div//span[@id='layer_cart_product_attributes']");
     private By continueShoppingButton = By.xpath("//div//span[@title='Continue shopping']");
-    private By theOnlyEveningDressToCart = By.xpath("//div//h5//a[@title='Printed Dress']");
     private By checkDressName = By.xpath("//div//h1[@itemprop='name']");
     private By numberOfDresses = By.xpath("//div//div//span[@id='layer_cart_product_quantity']");
     private By categoryName = By.xpath("//h1//span[@class='cat-name']");
-    private By summerDressesHeading = By.xpath("//h1//span[@class='cat-name']");
     private By selectSortBy = By.xpath("//form//div//div[@id='uniform-selectProductSort']");
     private By sortByOptions = By.xpath("//form//div//div//select[@id='selectProductSort']");
     private By dressesNamesList = By.xpath("//div//div[@class = 'right-block']//h5//a[@class='product-name']");
@@ -33,6 +30,7 @@ public class DressesPage {
     public DressesPage(WebDriver driver){
         this.driver = driver;
     }
+
     public void chooseTheDress(String dressNumber){
         String dresses = "//*[@id=\"center_column\"]/ul/li[%s]/div/div[2]/h5/a";
         dresses = String.format(dresses, dressNumber);

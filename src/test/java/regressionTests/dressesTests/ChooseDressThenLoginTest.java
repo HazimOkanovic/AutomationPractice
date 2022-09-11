@@ -1,4 +1,4 @@
-package dressesTests;
+package regressionTests.dressesTests;
 
 import base.BaseTest;
 import org.openqa.selenium.By;
@@ -51,7 +51,7 @@ public class ChooseDressThenLoginTest extends BaseTest {
     @Test(priority = 1)
     public void checkSortBy() throws InterruptedException {
         dressesPage.sortBy(sortByName);
-        Thread.sleep(Long.parseLong("5000"));
+        Thread.sleep(Long.parseLong("8000"));
         assertEquals(dressesPage.checkDressesOrder().toString(), Arrays.toString(dressesNamesAfterSorting), "Sorting was not successful");
     }
     @Test(priority = 2)
